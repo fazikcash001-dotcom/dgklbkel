@@ -1,0 +1,94 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #f5f7fb;
+  color: #222;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.game-wrap { width: min(900px, 92vw); }
+
+.topbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+h1 { font-size: 22px; margin: 0; }
+
+
+.score-box { font-weight: 700; }
+
+#restart {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: #fff;
+  cursor: pointer;
+}
+#restart:hover { filter: brightness(1.05); }
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;       
+  perspective: 800px;
+}
+
+.inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease;
+  cursor: pointer;
+}
+
+.card.matched .inner,
+.card.flipped .inner { transform: rotateY(180deg); }
+
+.face {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  backface-visibility: hidden;
+  user-select: none;
+}
+
+.front {
+  background: #e6e9f5;
+  border: 2px dashed #8a90b6;
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: 2px;
+  /* oldi — “M” harfi */
+}
+
+.back {
+  transform: rotateY(180deg);
+  background: #ffffff;
+  border: 2px solid #c9cfea;
+  font-size: 44px;           /* hayvon emojisi */
+}
+
+.card.disabled { pointer-events: none; }
+
+/* mobil moslashuv */
+@media (max-width: 520px) {
+  .topbar { flex-wrap: wrap; gap: 8px; }
+  h1 { font-size: 18px; }
+  .back { font-size: 38px; }
+}

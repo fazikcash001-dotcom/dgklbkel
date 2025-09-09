@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memory Card Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-wrap">
+    <header class="topbar">
+      <h1>Memory Card Game</h1>
+      <div class="score-box">
+        Ball: <span id="score">0</span> / 8
+      </div>
+      <button id="restart">Qayta boshlash</button>
+    </header>
+
+    <div id="board" class="board" aria-label="Memory o'yin kartalari"></div>
+
+    <footer class="tips">
+      <p>Qoidalar: 2 ta bir xil hayvonni toping. Har bir juftlik = 1 ball. 8 ballga yeting — g‘alaba! 🎉</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
